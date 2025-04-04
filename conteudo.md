@@ -39,22 +39,22 @@ typedef struct No {
 
 ## 3️⃣ Operações Básicas
 
-No* lista = NULL;
+    No* lista = NULL;
 
-void inserir_inicio(No** lista, int valor) {
-    No* novo = (No*) malloc(sizeof(No));
-    novo->valor = valor;
-    novo->proximo = *lista;
-    *lista = novo;
-}
+    void inserir_inicio(No** lista, int valor) {
+        No* novo = (No*) malloc(sizeof(No));
+        novo->valor = valor;
+        novo->proximo = *lista;
+        *lista = novo;
+    }
 
-void remover(No** lista, int valor) {
-    No* atual = *lista;
-    No* anterior = NULL;
+    void remover(No** lista, int valor) {
+        No* atual = *lista;
+        No* anterior = NULL;
 
-    while (atual != NULL && atual->valor != valor) {
-        anterior = atual;
-        atual = atual->proximo;
+        while (atual != NULL && atual->valor != valor) {
+            anterior = atual;
+            atual = atual->proximo;
     }
 
     if (atual == NULL) return; // Valor não encontrado
@@ -70,40 +70,40 @@ void remover(No** lista, int valor) {
 
 ## 4️⃣ Implementação em C
 
-#include <stdio.h>
-#include <stdlib.h>
+    #include <stdio.h>
+    #include <stdlib.h>
 
-typedef struct No {
-    int valor;
-    struct No* proximo;
-} No;
+    typedef struct No {
+        int valor;
+        struct No* proximo;
+    } No;
 
-void inserir_inicio(No** lista, int valor) {
-    No* novo = (No*) malloc(sizeof(No));
-    novo->valor = valor;
-    novo->proximo = *lista;
-    *lista = novo;
-}
-
-void imprimir(No* lista) {
-    while (lista != NULL) {
-        printf("%d -> ", lista->valor);
-        lista = lista->proximo;
+    void inserir_inicio(No** lista, int valor) {
+        No* novo = (No*) malloc(sizeof(No));
+        novo->valor = valor;
+        novo->proximo = *lista;
+        *lista = novo;
     }
-    printf("NULL\n");
-}
 
-int main() {
-    No* lista = NULL;
+    void imprimir(No* lista) {
+        while (lista != NULL) {
+            printf("%d -> ", lista->valor);
+            lista = lista->proximo;
+        }
+        printf("NULL\n");
+    }
+    
+    int main() {
+        No* lista = NULL;
 
-    inserir_inicio(&lista, 30);
-    inserir_inicio(&lista, 20);
-    inserir_inicio(&lista, 10);
-
-    imprimir(lista); // Saída: 10 -> 20 -> 30 -> NULL
-
-    return 0;
-}
+        inserir_inicio(&lista, 30);
+        inserir_inicio(&lista, 20);
+        inserir_inicio(&lista, 10);
+    
+        imprimir(lista); // Saída: 10 -> 20 -> 30 -> NULL
+    
+        return 0;
+    }
 
 ## 5️⃣ Referências
 
